@@ -36,14 +36,39 @@ while True:
         match opcion:
             case 1:
                 print("Registrar nuevo cliente")
-                nombre = input("Ingresa nombre de cliente: ")
+                nombre = input("Ingresa nombre de cliente: ").capitalize()
                 telefono = input("Ingresa telefono de cliente: ")
                 correo = input("Ingresa correo de cliente: ")
                 clientes.append(Propietarios(nombre, telefono, correo))
                 print(f"Cliente {nombre} registrado exitosamente")
             case 2:
+                if not clientes:
+                    print("No hay clientes registrados. Por favor, registra un cliente primero.")
+                    continue
                 print("Registrar nueva mascota")
-
+                propietario = input("Ingresa el correo del propietario: ")
+                for cliente in clientes:
+                    if cliente.correo == propietario:
+                        nombre = input("Ingresa nombre de la mascota: ")
+                        seleccion_especie = int(input("Ingresa especie de la mascota(1.Perros, 2.Gatos, 3.Peces y 4.Aves): "))
+                        match seleccion_especie:
+                                case 1:
+                                    especie = "Perro"
+                                case 2:
+                                    especie = "Gato"
+                                case 3:
+                                    especie = "Pez"
+                                case 4:
+                                    especie = "Ave"
+                                case _:
+                                    print("Especie no válida, por favor ingresa un número del 1 al 4")
+                                    break
+                        raza = input("Ingresa raza de la mascota: ")
+                        mascotas.append(Mascotas(nombre, especie, raza, cliente.nombre))
+                        print(f"Mascota {nombre} registrada exitosamente al propietario {cliente.nombre}")
+                        break
+                    else:
+                        print("Propietario no encontrado")
             case 3:
                 print("Agendar Cita")
             case 4:
