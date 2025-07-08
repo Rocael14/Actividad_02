@@ -10,12 +10,24 @@ class Mascotas:
         self.especie = especie
         self.raza = raza
         self.propietario = propietario
+
 class Citas:
     def __init__(self, mascota, fecha, hora, motivo):
         self.mascota = mascota
         self.fecha = fecha
         self.hora = hora
         self.motivo = motivo
+
+    def diagnostico(self):
+        if self.motivo == "Enfermedad":
+            return "Diagnóstico: Requiere atención veterinaria inmediata"
+        elif self.motivo == "Requerida":
+            return "Diagnóstico: Revisión general y vacunación"
+        elif self.motivo == "Operacion":
+            return "Diagnóstico: Requiere cirugía programada"
+        else:
+            return "Diagnóstico: Motivo no reconocido"
+
 
 def Menu():
     print("--- Bienvenido a la Clínica Veterinaria ---")
