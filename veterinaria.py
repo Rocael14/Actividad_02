@@ -1,3 +1,17 @@
+class Propietarios:
+    def __init__(self, nombre,telefono,correo):
+        self.nombre = nombre
+        self.telefono = telefono
+        self.correo = correo
+
+class Mascotas:
+    def __init__(self, nombre, especie, raza, propietario):
+        self.nombre = nombre
+        self.especie = especie
+        self.raza = raza
+        self.propietario = propietario
+
+
 def Menu():
     print("--- Bienvenido a la Clínica Veterinaria ---")
     print("1. Registrar nuevo cliente")
