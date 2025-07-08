@@ -148,8 +148,22 @@ while True:
                     print("Mascota no encontrada")
             case 4:
                 print("Ver historial de citas")
+                if not citas:
+                    print("No hay citas registradas.")
+                else:
+                    for cita in citas:
+                        print(f"Fecha: {cita.fecha}, Hora: {cita.hora}, Mascota: {cita.mascota.nombre}, Motivo: {cita.motivo}")
+                        print(cita.diagnostico())
             case 5:
                 print("Ver clientes y mascotas")
+                if not clientes:
+                    print("No hay clientes registrados.")
+                else:
+                    for cliente in clientes:
+                        print(f"Cliente: {cliente.nombre}, Telefono: {cliente.telefono}, Correo: {cliente.correo}")
+                        for mascota in mascotas:
+                            if mascota.propietario == cliente.nombre:
+                                print(f"  Mascota: {mascota.nombre}, Especie: {mascota.especie}, Raza: {mascota.raza}")
             case 0:
                 print("Gracias por utilizar el programa")
                 break
