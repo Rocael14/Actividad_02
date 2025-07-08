@@ -7,5 +7,25 @@ def Menu():
     print("5. Ver clientes y mascotas")
     print("0. Salir")
 
-Menu()
-opcion = int(input("Selecciona una opcion: "))
+while True:
+    Menu()
+    try:
+        opcion = int(input("Selecciona una opcion: "))
+        match opcion:
+            case 1:
+                print("Registrar nuevo cliente")
+            case 2:
+                print("Registrar nueva mascota")
+            case 3:
+                print("Agendar Cita")
+            case 4:
+                print("Ver historial de citas")
+            case 5:
+                print("Ver clientes y mascotas")
+            case 0:
+                print("Gracias por utilizar el programa")
+                break
+            case _:
+                print("Opcion no valida")
+    except ValueError:
+        print("Debes ingresar un número")
