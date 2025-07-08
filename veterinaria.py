@@ -10,7 +10,12 @@ class Mascotas:
         self.especie = especie
         self.raza = raza
         self.propietario = propietario
-
+class Citas:
+    def __init__(self, mascota, fecha, hora, motivo):
+        self.mascota = mascota
+        self.fecha = fecha
+        self.hora = hora
+        self.motivo = motivo
 
 def Menu():
     print("--- Bienvenido a la Clínica Veterinaria ---")
@@ -21,6 +26,9 @@ def Menu():
     print("5. Ver clientes y mascotas")
     print("0. Salir")
 
+clientes = []
+mascotas = []
+citas = []
 while True:
     Menu()
     try:
@@ -28,8 +36,14 @@ while True:
         match opcion:
             case 1:
                 print("Registrar nuevo cliente")
+                nombre = input("Ingresa nombre de cliente: ")
+                telefono = input("Ingresa telefono de cliente: ")
+                correo = input("Ingresa correo de cliente: ")
+                clientes.append(Propietarios(nombre, telefono, correo))
+                print(f"Cliente {nombre} registrado exitosamente")
             case 2:
                 print("Registrar nueva mascota")
+
             case 3:
                 print("Agendar Cita")
             case 4:
