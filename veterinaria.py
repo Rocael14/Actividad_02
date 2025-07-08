@@ -10,7 +10,35 @@ class Mascotas:
         self.especie = especie
         self.raza = raza
         self.propietario = propietario
+    def registro(self):
+        return f"Se asigno una mascota de Especie: {self.especie} Raza: {self.raza} Nombre: {self.nombre},Propietario: {self.propietario}"
 
+class Perros(Mascotas):
+    def __init__(self, nombre, raza, propietario):
+        super().__init__(nombre, "Perro", raza, propietario)
+
+    def registro(self):
+        return f"Guaw! Se asigno un perro de Raza: {self.raza} Nombre: {self.nombre},Propietario: {self.propietario}"
+
+class Gatos(Mascotas):
+    def __init__(self, nombre, raza, propietario):
+        super().__init__(nombre, "Gato", raza, propietario)
+
+    def registro(self):
+        return f"Miau! Se asigno un gato de Raza: {self.raza} Nombre: {self.nombre},Propietario: {self.propietario}"
+class Peces(Mascotas):
+    def __init__(self, nombre, raza, propietario):
+        super().__init__(nombre, "Pez", raza, propietario)
+
+    def registro(self):
+        return f"Blub! Se asigno un pez de Raza: {self.raza} Nombre: {self.nombre},Propietario: {self.propietario}"
+
+class Aves(Mascotas):
+    def __init__(self, nombre, raza, propietario):
+        super().__init__(nombre, "Ave", raza, propietario)
+
+    def registro(self):
+        return f"Pio! Se asigno un ave de Raza: {self.raza} Nombre: {self.nombre},Propietario: {self.propietario}"
 class Citas:
     def __init__(self, mascota, fecha, hora, motivo):
         self.mascota = mascota
@@ -76,8 +104,16 @@ while True:
                                     print("Especie no válida, por favor ingresa un número del 1 al 4")
                                     break
                         raza = input("Ingresa raza de la mascota: ")
-                        mascotas.append(Mascotas(nombre, especie, raza, cliente.nombre))
-                        print(f"Mascota {nombre} registrada exitosamente al propietario {cliente.nombre}")
+                        if especie == "Perro":
+                            nueva_mascota = Perros(nombre, raza, cliente.nombre)
+                        elif especie == "Gato":
+                            nueva_mascota = Gatos(nombre, raza, cliente.nombre)
+                        elif especie == "Pez":
+                            nueva_mascota = Peces(nombre, raza, cliente.nombre)
+                        elif especie == "Ave":
+                            nueva_mascota = Aves(nombre, raza, cliente.nombre)
+                        mascotas.append(nueva_mascota)
+                        print(nueva_mascota.registro())
                         break
                     else:
                         print("Propietario no encontrado")
